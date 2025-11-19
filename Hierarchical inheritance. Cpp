@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Shape {
+public:
+    void display() {
+        cout << "This is a shape." << endl;
+    }
+};
+
+// Derived class 1
+class Circle : public Shape {
+public:
+    void area(int r) {
+        cout << "Area of Circle: " << 3.14 * r * r << endl;
+    }
+};
+
+// Derived class 2
+class Rectangle : public Shape {
+public:
+    void area(int l, int b) {
+        cout << "Area of Rectangle: " << l * b << endl;
+    }
+};
+
+int main() {
+    Circle c;
+    Rectangle r;
+
+    cout << "--- Circle ---" << endl;
+    c.display();       // From base class
+    c.area(5);
+
+    cout << "\n--- Rectangle ---" << endl;
+    r.display();       // From base class
+    r.area(4, 6);
+
+    return 0;
+}
