@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+// Base class (Level 1)
+class Person {
+protected:
+    string name;
+public:
+    Person(string n) {
+        name = n;
+    }
+    void showPerson() {
+        cout << "Name: " << name << endl;
+    }
+};
+
+// Derived class from Person (Level 2)
+class Employee : public Person {
+protected:
+    int empId;
+public:
+    Employee(string n, int id) : Person(n) {
+        empId = id;
+    }
+    void showEmployee() {
+        cout << "Employee ID: " << empId << endl;
+    }
+};
+
+// Derived class from Employee (Level 3)
+class Manager : public Employee {
+private:
+    string department;
+public:
+    Manager(string n, int id, string dept) : Employee(n, id) {
+        department = dept;
+    }
+    void showManager() {
+        cout << "Department: " << department << endl;
+    }
+};
+
+int main() {
+    Manager m("Rohan", 1234, "Finance");
+
+    cout << "---- Manager Details ----" << endl;
+    m.showPerson();    // From Person
+    m.showEmployee();  // From Employee
+    m.showManager();   // From Manager
+
+    return 0;
+}
