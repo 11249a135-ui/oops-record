@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+// Base class 1
+class Teacher {
+public:
+    void teach() {
+        cout << "Teaching Subject" << endl;
+    }
+};
+
+// Base class 2
+class Researcher {
+public:
+    void research() {
+        cout << "Doing Research Work" << endl;
+    }
+};
+
+// Derived class inheriting from both Teacher and Researcher
+class Professor : public Teacher, public Researcher {
+public:
+    void work() {
+        cout << "Professor does both Teaching and Research." << endl;
+    }
+};
+
+int main() {
+    Professor p;
+
+    cout << "--- Professor Duties ---" << endl;
+    p.teach();      // From Teacher
+    p.research();   // From Researcher
+    p.work();       // From Professor
+
+    return 0;
+}
